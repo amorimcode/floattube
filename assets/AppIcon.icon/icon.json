@@ -1,25 +1,30 @@
 {
   "fill" : {
-    "automatic-gradient" : "srgb:1.00000,0.47000,0.20000,1.00000"
+    "automatic-gradient" : "srgb:0.35000,0.18000,0.45000,1.00000"
   },
   "groups" : [
     {
       "layers" : [
-        { "image-name" : "play.svg", "name" : "play", "glass" : true },
-        { "image-name" : "player.svg", "name" : "player", "glass" : true }
+        { "image-name" : "progress.svg", "name" : "progress", "glass" : true },
+        { "image-name" : "bezel.svg", "name" : "bezel", "glass" : true }
       ],
       "lighting" : "combined",
-      "shadow" : { "kind" : "neutral", "opacity" : 0.55 },
+      "shadow" : { "kind" : "neutral", "opacity" : 0.3 },
       "specular" : true,
-      "translucency" : { "enabled" : true, "value" : 0.15 }
+      "translucency" : { "enabled" : false, "value" : 0 }
     },
     {
       "layers" : [
-        { "image-name" : "screen.svg", "name" : "screen", "glass" : true }
+        { "image-name" : "tile.png", "name" : "tile", "glass" : false }
       ],
-      "shadow" : { "kind" : "neutral", "opacity" : 0.25 },
-      "specular" : true,
-      "translucency" : { "enabled" : true, "value" : 0.5 }
+      "shadow" : { "kind" : "neutral", "opacity" : 0.6 },
+      "specular" : false
+    },
+    {
+      "layers" : [
+        { "image-name" : "background.png", "name" : "background", "glass" : false }
+      ],
+      "specular" : false
     }
   ],
   "supported-platforms" : {

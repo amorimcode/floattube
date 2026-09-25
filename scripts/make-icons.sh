@@ -1,20 +1,29 @@
 #!/bin/bash
-# Gera os ícones a partir de assets/:
-#   - macos/AppIcon.icns: reserva para macOS 14/15 (a partir do SVG)
-#   - assets/icon-glass.png: o ícone Liquid Glass (assets/AppIcon.icon) como o macOS o desenha
-#   - chrome-extension/icons e site/: PNGs derivados
+# Gera todos os ícones a partir de assets/:
+#   - icon.svg (grid do macOS)        → macos/AppIcon.icns (reserva para macOS 14/15), extensão 48/128, site
+#   - icon-tiny.svg (simplificado)    → extensão 16/32 e favicon
+#   - icon-layers/*.svg               → camadas do ícone Liquid Glass (assets/AppIcon.icon)
+#   - assets/icon-glass.png           → o ícone Liquid Glass como o macOS 26 o desenha
+# Os SVGs usam desfoque direcional, então são renderizados pelo Chrome (scripts/render-svg.sh).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
-swiftc -O -o "$TMP/render" scripts/render-icon.swift
+RENDER=scripts/render-svg.sh
+swiftc -O -o "$TMP/render-app" scripts/render-icon.swift
+
+$RENDER assets/icon.svg "$TMP/icon.png"
+$RENDER assets/icon-tiny.svg "$TMP/tiny.png"
+$RENDER assets/icon-layers/background.svg assets/AppIcon.icon/Assets/background.png
+$RENDER assets/icon-layers/tile.svg assets/AppIcon.icon/Assets/tile.png
+cp assets/icon-layers/bezel.svg assets/icon-layers/progress.svg assets/AppIcon.icon/Assets/
 
 ICONSET="$TMP/AppIcon.iconset"
 mkdir -p "$ICONSET"
 for size in 16 32 128 256 512; do
-  "$TMP/render" assets/icon.svg "$size" "$ICONSET/icon_${size}x${size}.png"
-  "$TMP/render" assets/icon.svg "$((size * 2))" "$ICONSET/icon_${size}x${size}@2x.png"
+  sips -z "$size" "$size" "$TMP/icon.png" --out "$ICONSET/icon_${size}x${size}.png" >/dev/null
+  sips -z "$((size * 2))" "$((size * 2))" "$TMP/icon.png" --out "$ICONSET/icon_${size}x${size}@2x.png" >/dev/null
 done
 iconutil -c icns "$ICONSET" -o macos/AppIcon.icns
 
@@ -35,14 +44,14 @@ cat > "$PREVIEW/Contents/Info.plist" <<PLIST
 </dict></plist>
 PLIST
 cp /usr/bin/true "$PREVIEW/Contents/MacOS/preview"
-"$TMP/render" "$PREVIEW" 1024 assets/icon-glass.png
+"$TMP/render-app" "$PREVIEW" 1024 assets/icon-glass.png
 
 mkdir -p chrome-extension/icons site
-"$TMP/render" assets/icon-tiny.svg 16 chrome-extension/icons/icon16.png
-"$TMP/render" assets/icon-tiny.svg 32 chrome-extension/icons/icon32.png
-sips -z 48 48 assets/icon-glass.png --out chrome-extension/icons/icon48.png >/dev/null
-sips -z 128 128 assets/icon-glass.png --out chrome-extension/icons/icon128.png >/dev/null
-sips -z 512 512 assets/icon-glass.png --out site/icon.png >/dev/null
-sips -z 180 180 assets/icon-glass.png --out site/apple-touch-icon.png >/dev/null
-"$TMP/render" assets/icon-tiny.svg 64 site/favicon.png
+sips -z 16 16 "$TMP/tiny.png" --out chrome-extension/icons/icon16.png >/dev/null
+sips -z 32 32 "$TMP/tiny.png" --out chrome-extension/icons/icon32.png >/dev/null
+sips -z 48 48 "$TMP/icon.png" --out chrome-extension/icons/icon48.png >/dev/null
+sips -z 128 128 "$TMP/icon.png" --out chrome-extension/icons/icon128.png >/dev/null
+sips -z 512 512 "$TMP/icon.png" --out site/icon.png >/dev/null
+sips -z 180 180 "$TMP/icon.png" --out site/apple-touch-icon.png >/dev/null
+sips -z 64 64 "$TMP/tiny.png" --out site/favicon.png >/dev/null
 echo "Ícones gerados."

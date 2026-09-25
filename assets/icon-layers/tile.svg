@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#231c5e"/><stop offset="0.42" stop-color="#873d86"/>
+      <stop offset="0.72" stop-color="#ff7652"/><stop offset="1" stop-color="#ffc37b"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff8dc"/><stop offset="0.5" stop-color="#ffe29c"/><stop offset="1" stop-color="#ffc06a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.52" r="0.72">
+      <stop offset="0.45" stop-color="#0b0620" stop-opacity="0"/><stop offset="1" stop-color="#0b0620" stop-opacity="0.55"/>
+    </radialGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/><stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="motion" x="-40%" y="-10%" width="180%" height="120%"><feGaussianBlur stdDeviation="95 9"/></filter>
+    <filter id="streak" x="-60%" y="-200%" width="220%" height="500%"><feGaussianBlur stdDeviation="46 2"/></filter>
+    <filter id="drop" x="-30%" y="-40%" width="160%" height="190%"><feGaussianBlur stdDeviation="34"/></filter></defs><g><clipPath id="tile"><rect x="172.0" y="356.75" width="680" height="382.5" rx="66"/></clipPath>
+    <g clip-path="url(#tile)"><g>
+      <rect x="172.0" y="356.75" width="680" height="382.5" fill="url(#sky)"/>
+      <circle cx="580.0" cy="601.55" r="110.925" fill="url(#sun)"/>
+      <ellipse cx="280.8" cy="766.0250000000001" rx="421.6" ry="133.875" fill="#2a1d55"/>
+      <ellipse cx="824.8" cy="788.9749999999999" rx="408.0" ry="126.22500000000001" fill="#3a2766"/>
+    </g>
+      <rect x="172.0" y="356.75" width="680" height="382.5" fill="url(#gloss)"/>
+    </g></g></svg>

@@ -1,8 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <defs>
-    <linearGradient id="bg" x1="0.15" y1="0" x2="0.85" y2="1"><stop offset="0" stop-color="#FFBE55"/><stop offset="1" stop-color="#FF5F2E"/></linearGradient>
-  </defs>
-  <rect x="0" y="0" width="32" height="32" rx="8" fill="url(#bg)"/>
-  <rect x="5" y="9.5" width="22" height="13" rx="3.5" fill="#FFFFFF"/>
-  <path d="M14.5 13 L14.5 19 L19.5 16 Z" fill="#FF6A2B" stroke="#FF6A2B" stroke-width="1.2" stroke-linejoin="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#231c5e"/><stop offset="0.42" stop-color="#873d86"/>
+      <stop offset="0.72" stop-color="#ff7652"/><stop offset="1" stop-color="#ffc37b"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff8dc"/><stop offset="0.5" stop-color="#ffe29c"/><stop offset="1" stop-color="#ffc06a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.52" r="0.72">
+      <stop offset="0.45" stop-color="#0b0620" stop-opacity="0"/><stop offset="1" stop-color="#0b0620" stop-opacity="0.55"/>
+    </radialGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/><stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="motion" x="-40%" y="-10%" width="180%" height="120%"><feGaussianBlur stdDeviation="95 9"/></filter>
+    <filter id="streak" x="-60%" y="-200%" width="220%" height="500%"><feGaussianBlur stdDeviation="46 2"/></filter>
+    <filter id="drop" x="-30%" y="-40%" width="160%" height="190%"><feGaussianBlur stdDeviation="34"/></filter>
+  
+  <clipPath id="full"><rect width="1024" height="1024" rx="232"/></clipPath>
+  <clipPath id="tile"><rect x="72.0" y="282.5" width="880" height="495.0" rx="96"/></clipPath></defs>
+  <g clip-path="url(#full)">
+    <g filter="url(#motion)"><rect x="-240" y="-80" width="1504" height="1184" fill="url(#sky)"/>
+      <circle cx="662.4" cy="654.08" r="378.88" fill="url(#sun)"/>
+      <ellipse cx="0.6400000000000148" cy="1186.88" rx="932.48" ry="414.4" fill="#2a1d55"/>
+      <ellipse cx="1203.84" cy="1257.9199999999998" rx="902.4" ry="390.72" fill="#3a2766"/></g>
+    <rect width="1024" height="1024" fill="#0b0620" opacity="0.35"/>
+    <rect x="72.0" y="322.5" width="880" height="495.0" rx="96" fill="#07031a" opacity="0.6" filter="url(#drop)"/>
+    <g clip-path="url(#tile)"><rect x="72.0" y="282.5" width="880" height="495.0" fill="url(#sky)"/>
+      <circle cx="600.0" cy="589.4" r="158.4" fill="url(#sun)"/>
+      <ellipse cx="212.8" cy="812.15" rx="545.6" ry="173.25" fill="#2a1d55"/>
+      <ellipse cx="916.8" cy="841.8499999999999" rx="528.0" ry="163.35" fill="#3a2766"/></g>
+    <rect x="94.0" y="304.5" width="836" height="451.0" rx="74" fill="none" stroke="#ffffff" stroke-width="44"/>
+  </g></svg>
