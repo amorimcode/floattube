@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/site/styles.css"><link rel="stylesheet" href="/store/store.css"><script src="/store/inject.js" defer></script>
+<style>
+.canvas { width: 1280px; height: 720px; background: #111; }
+/* O player com as mesmas proporções da tela de Mac: o contêiner tem a largura do Mac (1280 / 31%). */
+.solo { container-type: inline-size; width: 4129px; position: relative; }
+.solo .pip { position: relative; right: auto; bottom: auto; width: 31%; border-radius: 0; box-shadow: none; }
+.solo .cloud { display: none; }
+</style></head><body><div class="canvas"><div class="solo" id="solo"></div></div>
+<script>
+addEventListener('load', () => {
+  const wait = setInterval(() => {
+    const pip = document.querySelector('.mac > .pip');
+    if (!pip) return;
+    clearInterval(wait);
+    document.getElementById('solo').appendChild(pip);
+    document.querySelector('[data-mac]').remove();
+  }, 50);
+});
+</script><div data-mac hidden></div></body></html>

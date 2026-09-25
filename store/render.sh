@@ -22,4 +22,9 @@ shot store/screenshot-1.html 1280 800 store/screenshot-1.png
 shot store/screenshot-2.html 1280 800 store/screenshot-2.png
 shot store/promo-small.html 440 280 store/promo-small.png
 shot store/og.html 1200 630 site/og.png
+# Imagens para o portfólio (bruno-next), sem texto em português
+mkdir -p store/portfolio
+shot store/portfolio-1.html 1600 1000 store/portfolio/floattube-1.png
+shot store/portfolio-2.html 1280 720 store/portfolio/floattube-2.png
+shot store/portfolio-3.html 1600 640 store/portfolio/floattube-3.png
 exit 0
