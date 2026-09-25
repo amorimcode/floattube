@@ -1,0 +1,12 @@
+/* Imagens da loja e do compartilhamento: mesmo visual do site, em quadros de tamanho fixo. */
+html, body { margin: 0; overflow: hidden; background: var(--bg); color-scheme: light; }
+.canvas { position: relative; overflow: hidden; background: var(--bg); }
+.canvas .kicker { display: block; margin-bottom: 18px; }
+.canvas h1 { font-size: 64px; line-height: 0.98; letter-spacing: -0.045em; font-weight: 720; }
+.canvas h1 em { font-style: normal; color: var(--accent); }
+.canvas .lede { margin-top: 20px; font-size: 20px; color: var(--ink-2); line-height: 1.45; }
+.canvas .mac { box-shadow: var(--shadow-float); }
+.canvas .hud { display: none; }
+.frozen .spaces { transition: none !important; }
+.tag { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; margin-top: 18px; }
+.tag i { width: 10px; height: 10px; border-radius: 50%; }

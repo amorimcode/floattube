@@ -1,6 +1,6 @@
 {
   "fill" : {
-    "automatic-gradient" : "srgb:0.20000,0.21600,0.62000,1.00000"
+    "automatic-gradient" : "srgb:1.00000,0.47000,0.20000,1.00000"
   },
   "groups" : [
     {
@@ -8,26 +8,18 @@
         { "image-name" : "play.svg", "name" : "play", "glass" : true },
         { "image-name" : "player.svg", "name" : "player", "glass" : true }
       ],
-      "lighting" : "individual",
-      "shadow" : { "kind" : "neutral", "opacity" : 0.5 },
+      "lighting" : "combined",
+      "shadow" : { "kind" : "neutral", "opacity" : 0.55 },
       "specular" : true,
-      "translucency" : { "enabled" : true, "value" : 0.25 }
+      "translucency" : { "enabled" : true, "value" : 0.15 }
     },
     {
       "layers" : [
-        { "image-name" : "brackets.svg", "name" : "brackets", "glass" : true }
+        { "image-name" : "screen.svg", "name" : "screen", "glass" : true }
       ],
-      "shadow" : { "kind" : "neutral", "opacity" : 0.4 },
+      "shadow" : { "kind" : "neutral", "opacity" : 0.25 },
       "specular" : true,
-      "translucency" : { "enabled" : true, "value" : 0.3 }
-    },
-    {
-      "layers" : [
-        { "image-name" : "desktops.svg", "name" : "desktops", "glass" : true }
-      ],
-      "shadow" : { "kind" : "neutral", "opacity" : 0.3 },
-      "specular" : true,
-      "translucency" : { "enabled" : true, "value" : 0.6 }
+      "translucency" : { "enabled" : true, "value" : 0.5 }
     }
   ],
   "supported-platforms" : {

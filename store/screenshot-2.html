@@ -1,22 +1,14 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link rel="stylesheet" href="/site/styles.css"><link rel="stylesheet" href="/store/mock.css">
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link rel="stylesheet" href="/site/styles.css"><link rel="stylesheet" href="/store/store.css"><script src="/store/inject.js" defer></script>
 <style>
-.canvas { width: 1280px; height: 800px; }
-.head { position: absolute; top: 70px; left: 0; right: 0; text-align: center; }
-.head h2 { font-size: 50px; margin: 0 0 12px; }
-.head p { color: var(--ink-2); font-size: 20px; margin: 0; }
-.compare { position: absolute; left: 60px; right: 60px; top: 250px; }
-.strip { animation: none !important; transform: translateX(-24%); }
-.demo figcaption { font-size: 18px; }
-</style></head><body><div class="canvas"><div class="aurora"></div>
-<div class="head"><h2>Troque de desktop. O player fica.</h2><p>No meio da animação de troca: o PiP do Chrome desliza junto; o FloatTube não se mexe.</p></div>
-<div class="compare">
-  <figure class="demo glass"><div class="screen"><div class="menubar"><i></i><i></i><i></i><i></i></div><div class="strip">
-    <div class="desk desk-1"><div class="win win-a"></div><div class="win win-b"></div><span class="space-label">Desktop 1</span><div class="pip"><div class="pip-bar"></div></div></div>
-    <div class="desk desk-2"><div class="win win-a"></div><div class="win win-b"></div><span class="space-label">Desktop 2</span><div class="pip"><div class="pip-bar"></div></div></div></div></div>
-    <figcaption><span class="tag tag-bad">Antes</span><span><strong>PiP do Chrome:</strong> sai deslizando e reaparece</span></figcaption></figure>
-  <figure class="demo glass"><div class="screen"><div class="menubar"><i></i><i></i><i></i><i></i></div><div class="strip">
-    <div class="desk desk-1"><div class="win win-a"></div><div class="win win-b"></div><span class="space-label">Desktop 1</span></div>
-    <div class="desk desk-2"><div class="win win-a"></div><div class="win win-b"></div><span class="space-label">Desktop 2</span></div></div>
-    <div class="pip"><div class="pip-bar"></div></div></div>
-    <figcaption><span class="tag tag-good">FloatTube</span><span><strong>Parado no mesmo pixel</strong> o tempo todo</span></figcaption></figure>
+.canvas { width: 1280px; height: 800px; padding: 72px 64px 0; box-sizing: border-box; }
+.canvas h1 { font-size: 52px; }
+.canvas .lede { margin-top: 14px; font-size: 19px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 52px; }
+.pair .tag i.bad { background: var(--ink-3); } .pair .tag i.good { background: var(--accent); }
+.pair .note { font-size: 16px; color: var(--ink-2); margin-top: 6px; }
+</style></head><body><div class="canvas">
+<h1>No meio da troca de desktop:</h1><p class="lede">o PiP do Chrome desliza junto com o desktop. O FloatTube fica exatamente onde estava.</p>
+<div class="pair">
+  <div><div data-mac data-mode="chrome" data-offset="21"></div><p class="tag"><i class="bad"></i>PiP do Chrome</p><p class="note">sai deslizando e só reaparece no fim</p></div>
+  <div><div data-mac data-mode="floattube" data-offset="21"></div><p class="tag"><i class="good"></i>FloatTube</p><p class="note">parado no mesmo pixel o tempo todo</p></div>
 </div></div></body></html>

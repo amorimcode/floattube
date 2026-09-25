@@ -11,7 +11,7 @@ trap 'kill $SERVER 2>/dev/null; rm -rf "$PROFILE"' EXIT
 sleep 1
 shot() { # página largura altura saída
   "$CHROME" --headless=new --disable-gpu --hide-scrollbars --user-data-dir="$PROFILE" --window-size="$2,$3" \
-    --virtual-time-budget=2000 --screenshot="$4" "http://127.0.0.1:$PORT/$1" >/dev/null 2>&1 &
+    --virtual-time-budget=4000 --blink-settings=preferredColorScheme=1 --screenshot="$4" "http://127.0.0.1:$PORT/$1" >/dev/null 2>&1 &
   local pid=$!
   rm -f "$4"
   for _ in $(seq 1 40); do if [[ -s "$4" ]]; then break; fi; sleep 0.25; done

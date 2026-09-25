@@ -5,26 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacidade — FloatTube</title>
   <meta name="description" content="Política de privacidade do app FloatTube e da extensão FloatTube para Chrome.">
-  <meta name="theme-color" content="#07081a">
+  <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0e0c" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div class="aurora" aria-hidden="true"></div>
-
-  <nav class="nav glass" aria-label="Principal">
-    <a class="brand" href="/"><img src="/icon.png" alt="" width="30" height="30">FloatTube</a>
-    <div class="nav-links">
-      <a class="btn btn-glass btn-sm" href="/">Voltar ao site</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/"><img src="/icon.png" alt="" width="28" height="28">FloatTube</a>
+      <nav aria-label="Principal">
+        <a href="https://github.com/amorimcode/floattube">GitHub</a>
+        <a class="button small" href="/">Voltar ao site</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <main class="wrap">
-    <article class="prose glass">
+  <main class="container">
+    <article class="prose">
+      <p class="kicker">FloatTube</p>
       <h1>Privacidade</h1>
       <p class="updated">Atualizado em 25 de setembro de 2026</p>
 
-      <p>O FloatTube é formado por um app para macOS e uma extensão para Chrome. Os dois funcionam inteiramente no seu computador. <strong>Nós não coletamos, armazenamos, vendemos nem compartilhamos nenhum dado pessoal.</strong></p>
+      <p class="lead">O FloatTube é formado por um app para macOS e uma extensão para Chrome. Os dois funcionam inteiramente no seu computador. <strong>Nós não coletamos, armazenamos, vendemos nem compartilhamos nenhum dado pessoal.</strong></p>
 
       <h2>O que a extensão acessa</h2>
       <ul>
@@ -49,14 +52,17 @@
     </article>
   </main>
 
-  <footer class="wrap">
-    <div class="footer-inner glass">
-      <span>FloatTube · não é afiliado ao YouTube nem ao Google</span>
-      <div class="footer-links">
-        <a href="/">Início</a>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="/"><img src="/icon.png" alt="" width="24" height="24">FloatTube</a>
+      <nav aria-label="Rodapé">
         <a href="https://github.com/amorimcode/floattube">GitHub</a>
-      </div>
+        <a href="https://github.com/amorimcode/floattube/issues">Reportar um problema</a>
+      </nav>
+      <p>Não é afiliado ao YouTube nem ao Google.</p>
     </div>
   </footer>
+
+  <script src="/site.js" defer></script>
 </body>
 </html>
