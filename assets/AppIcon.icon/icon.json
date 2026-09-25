@@ -1,0 +1,36 @@
+{
+  "fill" : {
+    "automatic-gradient" : "srgb:0.20000,0.21600,0.62000,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        { "image-name" : "play.svg", "name" : "play", "glass" : true },
+        { "image-name" : "player.svg", "name" : "player", "glass" : true }
+      ],
+      "lighting" : "individual",
+      "shadow" : { "kind" : "neutral", "opacity" : 0.5 },
+      "specular" : true,
+      "translucency" : { "enabled" : true, "value" : 0.25 }
+    },
+    {
+      "layers" : [
+        { "image-name" : "brackets.svg", "name" : "brackets", "glass" : true }
+      ],
+      "shadow" : { "kind" : "neutral", "opacity" : 0.4 },
+      "specular" : true,
+      "translucency" : { "enabled" : true, "value" : 0.3 }
+    },
+    {
+      "layers" : [
+        { "image-name" : "desktops.svg", "name" : "desktops", "glass" : true }
+      ],
+      "shadow" : { "kind" : "neutral", "opacity" : 0.3 },
+      "specular" : true,
+      "translucency" : { "enabled" : true, "value" : 0.6 }
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : "shared"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "FloatTube",
+  "version": "1.0.0",
+  "description": "Ao trocar de aba, manda o vídeo do YouTube para o player flutuante do app FloatTube (macOS), que não se mexe ao trocar de Space.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "minimum_chrome_version": "116",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    },
+    "default_title": "FloatTube: enviar vídeo para o player flutuante (Alt+Shift+P)"
+  },
+  "commands": {
+    "toggle-float": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Enviar o vídeo para o player flutuante / trazer de volta"
+    }
+  }
+}
